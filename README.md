@@ -38,7 +38,7 @@ The metrics module will deploy `kube-prometheus-stack` and will set
 
 ### Logs (Loki+Promtail)
 
-Login is done via Loki and Promtail. The data source is already added to the
+Logging is done via Loki and Promtail. The data source is already added to the
 grafana deployed by the metrics stack.
 
 ## Settings
