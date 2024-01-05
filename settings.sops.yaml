@@ -1,13 +1,15 @@
 grafana:
-    password: ENC[AES256_GCM,data:YDRTPyZ9Z+ukcWJR4q5i4j5e8gYcmiMpcKFau931mrAzD871OI9U2z19NQ==,iv:ck6cfmEDr6H/ib0+vY7z5wn2PyiGMTZf+bgMN5XxuEE=,tag:Qpjq04P+DLif+foXhpvUug==,type:str]
+    password: ENC[AES256_GCM,data:ZAj5a34wF0cswkxpLkpbNB7tkD4ibyOfgFn5Yv363RC+4kBFx3n0kGyy1w==,iv:iUEHod9pHBuj/jsbp0aEpK/5XFyU3wePsaCrFfYnBWg=,tag:96UCGArvqmqyt9Z+SWxiWw==,type:str]
 porkbun:
-    api_key: ENC[AES256_GCM,data:e/hxkOUx5kWIsikKTkaQeh2ITKt4JGaG5zihegBjDrzSJ3hS5bxMMUKKb2TltVIZem8s2ps8k7mCTzugd5HX455xJN4=,iv:2JSlsgWbiah33PkKkiJnol8mygpK6j89Z+e1fK91/PA=,tag:H/Bb44H9bXG1SszT8SMj5w==,type:str]
-    secret_key: ENC[AES256_GCM,data:ni3CFT26H9ra3Otezn/I+LWgqdfvlEHGwL9+4wZN5Za3utPUHmui70jXzte09Ln6Ykcg7BhAnYAjYxhFkIEWu5yex48=,iv:+KKyw9SQ9TmPLU58z2EYcK12B/vOpagVF+euTeHksX4=,tag:wg9DTFSG2kjueM2TcQlh4w==,type:str]
-    domain: ENC[AES256_GCM,data:kfZOlPEh6N4N,iv:FNSWWhN12r+XY/bpIzDWst8xSj28aPCq0KItcY5yw7U=,tag:HcLk2TSZKMXAnjfWph8MIw==,type:str]
+    api_key: ENC[AES256_GCM,data:tsh0m9IayHXyIAX91JlZwOUyqrM5o0WXSIsUnvfmkK8noqFbOIxtXelhawkhT6E5oXmohtknde3jKmR5ET7hgw6g0Os=,iv:5Vsr0U2QNkhB+uV1vvCtm7DlZAAZ8MwjA3a0GUaAU4g=,tag:QEMuayuflIeLYVv3OQPk2w==,type:str]
+    secret_key: ENC[AES256_GCM,data:3wqDp9W4UZiVxlMmqBUAn1HsF+L6ZDU4O06h7gj9tTPylfQi0/cqd2bdCivCr3RnVNOdKq+l3+3o8Ifl1MWFjbVSDvQ=,iv:hnQPHOYi/rx15kEGyTH27lEAsnxUKWZUZWD6Qxvl+uw=,tag:eIpU5Hb7wD11nT+ft04i/Q==,type:str]
+    domain: ENC[AES256_GCM,data:FRqSGcTShGWx,iv:8m2qlLE5CwwPkO6Rxzy3NK4Ef0SP3skdUvylU5D1M8A=,tag:a/f/kAQEzOHxpITkym//VA==,type:str]
 certmanager:
-    email: ENC[AES256_GCM,data:YGabdCseETNR/j6R9XMGJi8/60rZ,iv:dHmFHQsfi9AZ8Uyjp4zZBhwRCpJ3bQwGRkm9MES20TA=,tag:ASgyFpUIRGYF0whqKB8Bbw==,type:str]
+    email: ENC[AES256_GCM,data:e5B2kdNeLj7HeC0l1RI5D1VGyNPO,iv:wR/5dBFhW1H4YM99wwQVv1Hym69pEJRN+NZmRipStc0=,tag:mVkHOgEa3IRYow1NoimykA==,type:str]
 slack:
-    api_url: ENC[AES256_GCM,data:c/kCg7VNwURQDHwzDbySGwXG+3Twz/D9ChmS8yiNRK3xZc0dHnU6b9s6TjQu6yeVX2AJQ0brlqkAOkXZ+Z+9H36tM4LInp4pnmr/JEhQm0c0,iv:qi34Y6OJCRbrT2po+mljyp3bqZLL7m9Y9nGdooyB17Q=,tag:UeNdqDg4KjjAYspG1P0EXQ==,type:str]
+    api_url: ENC[AES256_GCM,data:WsKExv6YTP+Mg1qDC0uxihqYk36QQd9oFpCDXAolO/tEoEGBjzELg4OouJk+PVLCk97yllSnhB1iY7AVIzhaYm2xdc10ysaAwCc0/U1Faym1,iv:yxt5w2WVMLyRWRPxYW3Clv/dNcInfwH2o3gGEjk5xkI=,tag:gIW/t8MmS3n8+7P2FKnsKQ==,type:str]
+civo:
+    token: ENC[AES256_GCM,data:q8kjIKF39zmi1QCBQBfdQ+c73AphoBSoDC3hqTkhAYK3P2q26c1RY+8az59sHK/AZv8=,iv:1KUCWAr3Aze4bZQilQNxsg66gSE0INtdgSM1qILdjpI=,tag:91tSPXxVtWH1vzmcu/X4QA==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -17,14 +19,14 @@ sops:
         - recipient: age19t2al77nhtazslzknxrxffdjf27fqyehejna7sxt2e97fwwx5pls5clc4s
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBWY2cvcEFsR2tvN1lydkc0
-            eUhnYXFBR09OemFWN1hwc0grWE95Qmp4NlhNClc0TFZEQW96aWV4bm9qK2lBT2NG
-            V1ZSd3NMajVCWjg2UWpuVkpOMGVmN28KLS0tIGVoYVprU2E2Y3FxL3hxRHk0OFJK
-            dlhZbjM1eHd6b1RWUVp6VHlJTjFDMGcKeouTOz27Z0NAv9Z8AvZ/jTyS6Rlj+CA9
-            Dk1bXVLseZLYpeK5Yc38YfuD9p25X6hCemKhm9rbrAAgdwZhS+67Pw==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVOG9DZWNSRG9YeEdoakth
+            SUxZL3JMNVZsSmFUd2JJQUcyWlhZZDlLdFdnCjU2QmhXcjdiWVlWcS8zcmJMT3d6
+            NGlBWWk4WGhsdUZueTdPamhjazA2U3cKLS0tIGdsR1VURGJlejhoYWlqeXlTQkI4
+            ZTN3bUxzLzlvaGxLVWpKSE05MjlVY1UKKhTGn2DKF2zFn8/ywHIO0PrH+i4ihbmm
+            OkYGdbNhM2yvv4oDxXJr6sD0QQGuT24CAeHHRL4tfdZXcCbVNA7CNA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-01-05T19:48:50Z"
-    mac: ENC[AES256_GCM,data:AC2fWMecgTIYDj6EAKgMluTJQsPw7Sn6+v5bBrFjamZ/4yWLXKGr7HfRGdiwF4WXhxUXaD0VThmn/uiSeFY/Ki5B/7/UDoN/mDlmKLMAq9C37XH18jOeYt7QQwbXcMUUNoldTYnJ9vZsnWTYuR6zWj1QM8KTBp5jS0qAS21UYtM=,iv:LreUvnKrwTDtTgwx9O723XQddEWwh1pd9MEPQ6oZbP0=,tag:nw1Lo3chUFPnM1kqOb/Yfg==,type:str]
+    lastmodified: "2024-01-05T22:10:27Z"
+    mac: ENC[AES256_GCM,data:MxBvWRZr/+o5uWsKYg4mZiJ3LCsNxmXFFf2X7FIT65YAcJqr+rjKI7itqu+iC34sOkdtru3nQV7VAlJ2fZKZ3Iiy/DOjnqNIgoBQMZp4OxYHuBCqcjgnQf/vzlqdFT5uH7eAGibGxadLJnXFYp+41okCrRpOGLeCU/SsD/x6Iko=,iv:G2IJ1ho4A/XlF3hM8AVc5qL1/a/7NRIyI5QZO+vGytI=,tag:NjECAXmNS/C/AYnfVBfxMg==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.7.3

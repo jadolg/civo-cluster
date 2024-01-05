@@ -1,4 +1,3 @@
-variable "civo_token" {}
 variable "cluster_name" {
   default = "civo001"
 }

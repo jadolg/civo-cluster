@@ -1,6 +1,6 @@
 module "civo_cluster" {
   source       = "./modules/civo"
-  civo_token   = var.civo_token
+  civo_token   = data.sops_file.settings.data["civo.token"]
   cluster_name = var.cluster_name
 }
 
