@@ -14,7 +14,9 @@ module "cert_manager" {
 }
 
 module "monitoring" {
-  depends_on       = [module.civo_cluster]
+  depends_on = [
+    module.civo_cluster
+  ]
   source           = "./modules/monitoring"
   grafana_password = data.sops_file.settings.data["grafana.password"]
   slack_api_url    = data.sops_file.settings.data["slack.api_url"]
@@ -22,7 +24,9 @@ module "monitoring" {
 }
 
 module "loki" {
-  depends_on             = [module.civo_cluster, module.monitoring]
+  depends_on = [
+    module.monitoring
+  ]
   source                 = "./modules/loki"
   chart_version_loki     = var.versions["loki"]
   chart_version_promtail = var.versions["promtail"]
@@ -34,6 +38,14 @@ module "traefik" {
   ]
   source        = "./modules/traefik"
   chart_version = var.versions["traefik"]
+}
+
+module "argocd" {
+  depends_on = [
+    module.monitoring
+  ]
+  source        = "./modules/argocd"
+  chart_version = var.versions["argocd"]
 }
 
 resource "porkbun_dns_record" "cluster_cname_record" {
