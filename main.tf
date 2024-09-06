@@ -1,7 +1,7 @@
 module "civo_cluster" {
   source       = "./modules/civo"
-  civo_token   = data.sops_file.settings.data["civo.token"]
   cluster_name = var.cluster_name
+  kubeconfig_file = var.kubeconfig_file
 }
 
 module "cert_manager" {
@@ -54,6 +54,6 @@ resource "porkbun_dns_record" "cluster_cname_record" {
   ]
   name    = "*.${var.dns_zone_prefix}"
   domain  = data.sops_file.settings.data["porkbun.domain"]
-  content = module.traefik.load_balancer_hostname
+  content = module.traefik.civo_loadbalancer_output
   type    = "CNAME"
 }

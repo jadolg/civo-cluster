@@ -1,7 +1,3 @@
-variable "civo_token" {}
-variable "civo_region" {
-  default = "FRA1"
-}
 variable "cluster_name" {}
 
 variable "node_size" {
@@ -9,4 +5,7 @@ variable "node_size" {
 }
 variable "node_count" {
   default = 3
+}
+variable "kubeconfig_file" {
+  default = "kubeconfig"
 }

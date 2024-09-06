@@ -10,38 +10,29 @@ terraform {
     porkbun = {
       source = "cullenmcdermott/porkbun"
     }
+    civo = {
+      source = "civo/civo"
+    }
   }
-}
-
-locals {
-  kubeconfig-file-name = "civo-kubeconfig"
-}
-
-resource "null_resource" "write_kubeconfig" {
-  depends_on = [module.civo_cluster]
-
-  provisioner "local-exec" {
-    command = "echo '${module.civo_cluster.kubeconfig}' > ${local.kubeconfig-file-name}"
-  }
-}
-
-resource "local_file" "kubeconfig" {
-  content  = module.civo_cluster.kubeconfig
-  filename = local.kubeconfig-file-name
 }
 
 provider "helm" {
   kubernetes {
-    config_path = local_file.kubeconfig.filename
+    config_path = var.kubeconfig_file
   }
 }
 
 provider kubernetes {
-  config_path = local_file.kubeconfig.filename
+  config_path = var.kubeconfig_file
 }
 
 provider "kubectl" {
-  config_path = local_file.kubeconfig.filename
+  config_path = var.kubeconfig_file
+}
+
+provider "civo" {
+  token  = data.sops_file.settings.data["civo.token"]
+  region = var.civo_region
 }
 
 data "sops_file" "settings" {
@@ -49,6 +40,6 @@ data "sops_file" "settings" {
 }
 
 provider "porkbun" {
-  api_key = data.sops_file.settings.data["porkbun.api_key"]
+  api_key    = data.sops_file.settings.data["porkbun.api_key"]
   secret_key = data.sops_file.settings.data["porkbun.secret_key"]
 }

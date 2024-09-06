@@ -6,13 +6,9 @@ terraform {
   }
 }
 
-provider "civo" {
-  token  = var.civo_token
-  region = var.civo_region
-}
-
 resource "civo_firewall" "civo_cluster" {
   name = var.cluster_name
+  create_default_rules = false
   ingress_rule {
     action     = "allow"
     cidr       = ["0.0.0.0/0"]
@@ -31,11 +27,19 @@ resource "civo_firewall" "civo_cluster" {
     protocol   = "tcp"
     port_range = "80"
   }
+  egress_rule {
+    label      = "all"
+    protocol   = "tcp"
+    port_range = "1-65535"
+    cidr       = ["0.0.0.0/0"]
+    action     = "allow"
+  }
 }
 
 resource "civo_kubernetes_cluster" "civo_cluster" {
   name         = var.cluster_name
   firewall_id  = civo_firewall.civo_cluster.id
+  write_kubeconfig = true
   cluster_type = "talos"
   pools {
     size       = var.node_size
@@ -43,8 +47,9 @@ resource "civo_kubernetes_cluster" "civo_cluster" {
   }
 }
 
-output "kubeconfig" {
-  value = civo_kubernetes_cluster.civo_cluster.kubeconfig
+resource "local_file" "kubeconfig" {
+  content  = civo_kubernetes_cluster.civo_cluster.kubeconfig
+  filename = var.kubeconfig_file
 }
 
 output "domain" {
